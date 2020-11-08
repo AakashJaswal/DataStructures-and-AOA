@@ -31,15 +31,15 @@ class LinkedList<T extends Comparable<T>> {
 
     /**
      * Adds a new node to the Linked List
+     *
      * @param data
      */
-    void addNode(T data){
-        if (head == null){
+    void addNode(T data) {
+        if (head == null) {
             head = new Node<T>(data);
-        }
-        else {
+        } else {
             Node curr = head;
-            while(curr.getNext() != null){
+            while (curr.getNext() != null) {
                 curr = curr.getNext();
             }
             curr.setNext(new Node(data));
@@ -49,15 +49,14 @@ class LinkedList<T extends Comparable<T>> {
     /**
      * Print the Node
      */
-    void printNodes(){
-        if(head == null){
+    void printNodes() {
+        if (head == null) {
             System.out.println("LinkedList is empty");
-        }
-        else {
+        } else {
             Node<T> curr = head;
             int i = 1;
-            while (curr != null){
-                System.out.println("Value at Node "+i+" is: "+curr.getData().toString());
+            while (curr != null) {
+                System.out.println("Value at Node " + i + " is: " + curr.getData().toString());
                 curr = curr.getNext();
                 i++;
             }
@@ -67,13 +66,14 @@ class LinkedList<T extends Comparable<T>> {
 
 }
 
-public class Main{
-    public static void main(String[] args){
+public class Main {
+    public static void main(String[] args) {
 
         LinkedList<Integer> linkedList = new LinkedList<Integer>();
         linkedList.printNodes();
         linkedList.addNode(2);
         linkedList.addNode(4);
+        linkedList.addNode(6);
         linkedList.printNodes();
     }
 }
