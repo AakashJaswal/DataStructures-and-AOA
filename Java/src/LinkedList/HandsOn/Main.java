@@ -1,4 +1,4 @@
-package LinkedList;
+package LinkedList.HandsOn;
 
 class Node<T extends Comparable<T>> {
     private T data;
