@@ -43,6 +43,7 @@ class LinkedList:
                 curr = curr.get_next()
 
 
+# Node creation
 if __name__ == '__main__':
     list = LinkedList()
     list.print()
