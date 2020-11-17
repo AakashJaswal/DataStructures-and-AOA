@@ -9,5 +9,13 @@ public class Main {
         System.out.println(stack.peek());
         stack.pop();
         System.out.println(stack.peek());
+
+        try {
+            stack.pop();
+            stack.pop();
+        }
+        catch (Stack.SUE sue){
+            System.out.println("Stack under Flow!!!");
+        }
     }
 }

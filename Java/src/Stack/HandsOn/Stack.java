@@ -29,6 +29,7 @@ public class Stack<T> {
         }
         T top_data = top.getData();
         top = top.getNext();
+        size--;
         return top_data;
     }
 }
