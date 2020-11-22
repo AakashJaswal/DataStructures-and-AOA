@@ -1,4 +1,4 @@
-package test;
+package Stack.HandsOn.practice;
 
 class Element<T> {
     T data;
@@ -34,9 +34,7 @@ class Stack<T> {
     int size = 0;
 
     void push(T data) {
-
-        Element<T> temp = new Element<>(data, top);
-        top = temp;
+        top = new Element<>(data, top);
         size++;
     }
 
@@ -51,11 +49,11 @@ class Stack<T> {
     }
 }
 
-public class parantheise {
+public class parentheses {
 
     public static void main(String[] args) throws Stack.SUE {
         Stack<Character> st = new Stack<>();
-        String str = "{{}[][[";
+        String str = "{}}}";
         char[] ch = str.toCharArray();
         for (char c : ch) {
             if (c == '{' || c == '(' || c == '[') {
@@ -64,7 +62,10 @@ public class parantheise {
                 try {
                     char t = st.pop();
                     if (t == '{' && c == '}' || t == '(' && c == ')' || t == '[' && c == ']') continue;
-                    else { System.exit(1);}
+                    else {
+                        System.out.println("Not balanced");
+                        System.exit(1);
+                    }
 
 
                 } catch (Exception e) {
@@ -73,7 +74,7 @@ public class parantheise {
                 }
             }
         }
-        if(st.size > 0)System.out.println("Not Balanced");
+        if (st.size > 0) System.out.println("Not Balanced");
         else System.out.println("Balanced");
 
     }
