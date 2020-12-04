@@ -18,13 +18,13 @@ public class MergeSort {
     }
 
     void merge(int ar[], int start, int end, int middle) {
-        int sizeL = middle - start, sizeR = end - middle;
+        int sizeL = middle - start + 1, sizeR = end - middle;
         int[] L = new int[sizeL];
         int[] R = new int[sizeR];
         for (int i = 0; i < sizeL; ++i)
             L[i] = ar[start + i];
         for (int j = 0; j < sizeR; ++j)
-            R[j] = ar[middle + j];
+            R[j] = ar[middle + j + 1];
 
         int i = 0, j = 0;
 
