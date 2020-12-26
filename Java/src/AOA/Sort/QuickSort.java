@@ -1,42 +1,43 @@
 package AOA.Sort;
 
+import java.io.*;
+import java.util.Arrays;
+
 public class QuickSort {
-    int partition(int[] arr, int low, int high) {
-        int pivot = arr[high];
-        int i = (low - 1);
-        System.out.println(i);
-        // Put the elements smaller than pivot on the left and
-        // greater than pivot on the right of pivot
-        for (int j = low; j < high; j++) {
-            if (arr[j] <= pivot) {
-                i++;
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+    static void swap(int arr[], int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+
+    static int partition(int[] arr, int low, int high) {
+        int pivot = arr[low];
+        int temp;
+        int l = low, h = high;
+        while (l < h) {
+            while (arr[l] <= pivot && l < h) l++;
+            while (arr[h] > pivot) h--;
+            if (l < h) {
+                swap(arr, l, h);
             }
         }
-        int temp = arr[i + 1];
-        arr[i + 1] = arr[high];
-        arr[high] = temp;
-        return (i + 1);
+        swap(arr, low, h);
+        return h;
     }
 
-    void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            int pivot = partition(arr, low, high);
-            quickSort(arr, low, pivot-1);
-            quickSort(arr, pivot + 1, high);
-        }
+    static void sort(int[] arr, int low, int high){
+        if (low >= high)
+            return;
+        int piv = partition(arr, low, high);
+        sort(arr,low, piv);
+        sort(arr,piv+1,high);
     }
 
-    public static void main(String[] args) {
-        QuickSort qs = new QuickSort();
-        int[] ar = {10, 4, 2, 6, 3};
-        qs.quickSort(ar, 0, ar.length - 1);
-        for (int a : ar) {
-            System.out.print(a + " ");
-        }
-
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        sort(arr, 0, arr.length - 1);
+        for (int ar : arr) System.out.print(ar + " ");
     }
 
 }

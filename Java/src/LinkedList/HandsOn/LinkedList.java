@@ -25,7 +25,7 @@ public class LinkedList<T extends Comparable<T>> {
             Node curr = head;
             int i = 0;
             while (curr != null) {
-                System.out.print(i + " Node is having value: " + curr.getData() + " ");
+                System.out.println(i + " Node is having value: " + curr.getData() + " ");
                 curr = curr.getNext();
                 i++;
             }
