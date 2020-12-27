@@ -9,11 +9,12 @@ public class Element<T> {
         this.next = next;
     }
 
+    T getData() {
+        return data;
+    }
+
     Element<T> getNext() {
         return next;
     }
 
-    T getData() {
-        return data;
-    }
 }

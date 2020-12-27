@@ -4,21 +4,20 @@ public class Node<T extends Comparable<T>> {
     private T data;
     private Node<T> next;
 
-    Node<T> getNext() {
-        return next;
+    Node(T data) {
+        this.data = data;
     }
 
     T getData() {
         return data;
     }
 
-    Node(T data) {
-        this.data = data;
-        setNext(null);
-    }
-
     void setNext(Node<T> next) {
         this.next = next;
+    }
+
+    Node<T> getNext() {
+        return next;
     }
 
 }
