@@ -6,8 +6,31 @@ import java.util.Queue;
 public class Main {
 
     public static void print(TreeNode node) {
-        System.out.println(node.getData());
+        System.out.print(node.getData() + " ");
     }
+
+
+    public static void PreOrderDFS(TreeNode root) {
+        if (root == null) return;
+        print(root);
+        PreOrderDFS(root.getLeft());
+        PreOrderDFS(root.getRight());
+    }
+
+    public static void InOrderDFS(TreeNode root) {
+        if (root == null) return;
+        InOrderDFS(root.getLeft());
+        print(root);
+        InOrderDFS(root.getRight());
+    }
+
+    public static void PostOrderDFS(TreeNode root) {
+        if (root == null) return;
+        PostOrderDFS(root.getLeft());
+        PostOrderDFS(root.getRight());
+        print(root);
+    }
+
 
     public static void BFS(TreeNode root) {
         Queue<TreeNode> q = new LinkedList<TreeNode>();
@@ -35,16 +58,23 @@ public class Main {
         TreeNode<Character> e = new TreeNode<>('E');
         TreeNode<Character> f = new TreeNode<>('F');
         TreeNode<Character> g = new TreeNode<>('G');
-        TreeNode<Character> h = new TreeNode<>('H');
+
 
         a.setLeft(b);
         a.setRight(c);
-        c.setRight(e);
-        c.setLeft(d);
-        d.setLeft(f);
-        d.setRight(h);
-        e.setRight(g);
+        b.setRight(e);
+        b.setLeft(d);
+        c.setLeft(f);
+        c.setRight(g);
+
 
         BFS(a);
+        System.out.println();
+        PreOrderDFS(a);
+        System.out.println();
+        PostOrderDFS(a);
+        System.out.println();
+        InOrderDFS(a);
+
     }
 }
