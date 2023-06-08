@@ -21,7 +21,7 @@ class LinkedList:
         self.head = None
 
     def add_next(self, data):
-        if self.head:
+        if not self.head:
             print("first")
             self.head = Node(data)
         else:
@@ -32,7 +32,7 @@ class LinkedList:
             curr.set_next(Node(data))
 
     def print(self):
-        if self.head:
+        if not self.head:
             print("Empty")
         else:
             curr = self.head
