@@ -62,3 +62,5 @@ if __name__ == '__main__':
     list.print()
     list.delete(2)
     list.print()
+
+# TODO: add deletion & insertion based on index.
