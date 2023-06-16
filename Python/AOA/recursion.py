@@ -29,4 +29,4 @@ def fibo_memo(data: int, memo: dict = {}) -> int:
 
 
 print(fibo(6))
-print(fibo_memo(6))
+print(fibo_memo(2))
