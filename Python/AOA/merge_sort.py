@@ -2,7 +2,7 @@ n = [4, 3, 2, 1]
 
 
 def merge_sort(nums: list[int], start, end):
-    if (end - start + 1 <= 1):
+    if (end == start):
         return nums
     middle = (start + end) // 2
     merge_sort(nums, start, middle)
