@@ -28,7 +28,7 @@ class Heap:
                 self.he[i], self.he[(i * 2 + 1)] = self.he[(i * 2 + 1)], self.he[i]
                 i = i * 2 + 1
             elif self.he[i] > self.he[i * 2]:
-                # left is greater than child
+                # child greater than left
                 self.he[i], self.he[(i * 2)] = self.he[(i * 2)], self.he[i]
                 i = i * 2
             else:
