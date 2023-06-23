@@ -22,7 +22,7 @@ def dfs(grid, r, c, path: set):
     count += dfs(grid, r, c + 1, path)
     count += dfs(grid, r, c - 1, path)
 
-    path.remove((r ,c))
+    path.remove((r, c))
     return count
 
 
