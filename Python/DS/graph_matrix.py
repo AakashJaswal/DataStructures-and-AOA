@@ -41,17 +41,17 @@ def bfs(grid):
     length = 0
     while q:
         for i in range(len(q)):
-            r, c = q.popleft()
-            if r == R - 1 and c == C - 1:
+            rw, cl = q.popleft()
+            if rw == R - 1 and cl == C - 1:
                 return length
 
             ne = [[1, 0], [-1, 0], [0, 1], [0, -1]]
-            for dr, dc in ne:
-                if min(r + dr, c + dc) < 0 or r + dr == R or c + dc == C or (r + dr, c + dc) in visit or grid[
-                    r + dr][c + dc] == 1:
+            for rd, cd in ne:
+                r, c = rw + rd, cl + cd
+                if min(r, c) < 0 or r == R or c == C or (r, c) in visit or grid[r][c] == 1:
                     continue
-                q.append((r + dr, c + dc))
-                visit.add((r + dr, c + dc))
+                q.append((r, c))
+                visit.add((r, c))
         length += 1
 
 
