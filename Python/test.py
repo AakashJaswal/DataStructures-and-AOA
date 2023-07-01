@@ -1,17 +1,15 @@
-def getConcatenation(nums: list[int]) -> list[int]:
-    ans = list()
-    for _ in range(2):
-        for i in range(len(nums)):
-            ans.append(nums[i])
-    return ans
+arr = [1, 2, 3, 4]
+sol = [1, 1, 1, 1]
+sol2 = [1, 1, 1, 1]
+pre = 1
+post = 1
+for i, n in enumerate(arr):
+    sol[len(arr) - i - 1] *= post
+    post *= arr[len(arr) - i - 1]
 
+for i, n in enumerate(arr):
+    sol2[i] *= pre
+    pre *= n
 
-nums = [1,2,1]
-
-print(getConcatenation(nums))
-
-
-l1= [3]
-l2 = [2]
-val = min(l1 if l1 else l2,l2 if l2 else l1)
-print(val)
+print(sol)
+print(sol2)
