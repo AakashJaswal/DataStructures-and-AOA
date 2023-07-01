@@ -14,6 +14,15 @@ class LinkList:
             curr = curr.next
 
         curr.next = Node(val)
+        return curr.next
+
+    def add_node(self, nd: Node):
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+
+        curr.next = nd
+        return curr.next
 
     def print(self):
         curr = self.head
@@ -22,7 +31,7 @@ class LinkList:
             res.append(curr.val)
             curr = curr.next
 
-        print(res)
+        return res
 
     def slow_fast(self):
         slow: Node = self.head
@@ -30,15 +39,51 @@ class LinkList:
         while fast and fast.next:
             fast = fast.next.next
             slow = slow.next
-        print(slow.val)
+        return slow.val
+
+    def has_cycle(self):
+        slow: Node = self.head
+        fast: Node = self.head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if slow == fast:
+                return True
+
+        return False
+
+    def has_cycle_return_start(self):
+        slow: Node = self.head
+        slow2: Node = self.head
+        fast: Node = self.head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if slow == fast:
+                break
+        if not fast or not fast.next:
+            return None
+
+        while slow != slow2:
+            slow = slow.next
+            slow2 = slow2.next
+
+        return slow.val
+
 
 
 head = LinkList(0)
 head.add(1)
-head.add(2)
+two = head.add(2)
 head.add(3)
 head.add(4)
 head.add(5)
-head.print()
 
-head.slow_fast()
+# print(head.print())
+# print(f"Mid : {head.slow_fast()}")
+
+head.add_node(two)
+
+print(head.has_cycle())
+
+print(head.has_cycle_return_start())
