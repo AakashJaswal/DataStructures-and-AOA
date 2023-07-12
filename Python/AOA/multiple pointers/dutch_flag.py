@@ -1,7 +1,7 @@
-nums = [2, 0, 2, 1, 1, 0]
+nums = [2, 0, 1]
 l, m, h = 0, 0, len(nums) - 1
 
-while m < h:
+while m <= h:
     if nums[m] == 0:
         nums[l], nums[m] = nums[m], nums[l]
         l += 1
