@@ -9,25 +9,22 @@ class TreeNode:
 
 
 def create_BST(val: list[int]):
-    root = TreeNode(val[0])
-    curr = root
-    for i in range(1, len(val)):
-        if val[i] < curr.val:
-            while curr.left:
-                curr = curr.left
-            curr.left = TreeNode(val[i])
-        else:
-            while curr.right:
-                curr = curr.right
-            curr.right = TreeNode(val[i])
-        curr = root
+    def insert(root, el):
+        if not root:
+            return TreeNode(el)
+        if el < root.val:
+            root.left = insert(root.left, el)
+        if el > root.val:
+            root.right = insert(root.right, el)
+        return root
+
+    root = insert(None, val[0])
+    for idx in range(1, len(val)):
+        insert(root, val[idx])
     return root
 
 
-root = create_BST([3, 2, 1, 4, 5])
-print(root.val)
 
-res = []
 
 
 def dfs(root: TreeNode):
@@ -56,7 +53,12 @@ def bfs(root):
         level += 1
 
 
-dfs(root)
-print(res)
+if __name__ == '__main__':
+    root = create_BST([3, 2, 1, 4, 5])
+    print(root.val)
 
-bfs(root)
+    res = []
+    dfs(root)
+    print(res)
+
+    bfs(root)
