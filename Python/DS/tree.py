@@ -47,11 +47,12 @@ def bfs(root):
         print(f"Level : {level}")
         for i in range(len(q)):
             curr = q.popleft()
-            print(curr.val)
+            print(curr.val, end=' ')
             if curr.left:
                 q.append(curr.left)
             if curr.right:
                 q.append(curr.right)
+        print()
         level += 1
 
 
