@@ -24,9 +24,6 @@ def create_BST(val: list[int]):
     return root
 
 
-
-
-
 def dfs(root: TreeNode):
     if not root:
         return None
@@ -53,6 +50,44 @@ def bfs(root):
         level += 1
 
 
+def traverse_boundary(root):
+    res = []
+
+    def dfs_left(node):
+        if not node.left and not node.right:
+            return
+        res.append(int(node.val))
+        if node.left:
+            dfs_left(node.left)
+        else:
+            dfs_left(node.right)
+
+    def dfs_right(node):
+        if not node.left and not node.right:
+            return
+        res.append(int(node.val))
+        if node.right:
+            dfs_left(node.right)
+        else:
+            dfs_left(node.left)
+
+    def inorder(node):
+        if not node:
+            return
+        if not node.left and not node.right:
+            res.append(int(node.val))
+            return
+
+        inorder(node.left)
+        inorder(node.right)
+
+    dfs_left(root)
+    inorder(root)
+    if root.right:
+        dfs_right(root.right)
+    return res
+
+
 if __name__ == '__main__':
     root = create_BST([3, 2, 1, 4, 5])
     print(root.val)
@@ -62,3 +97,6 @@ if __name__ == '__main__':
     print(res)
 
     bfs(root)
+
+    print()
+    print(traverse_boundary(root))

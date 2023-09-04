@@ -5,7 +5,7 @@ def quick_sort(nums: list[int], s, e):
     if (e - s + 1 <= 1):
         return nums
 
-    left, start, pivot = s, s, e
+    left, pivot = s,  e
 
     for i in range(s, e):
         if nums[i] < nums[pivot]:
